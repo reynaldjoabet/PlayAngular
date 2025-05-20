@@ -1,0 +1,19 @@
+{
+    "deploy": {
+        "goal": "-Dconfig.file=conf/production.conf"
+    },
+
+    "build": {
+        "goal": "clean compile",
+        "dockerfile": {
+            "baseImage": "openjdk:8-jre-alpine",
+            "expose": [8080],
+            "entrypoint": ["java", "-jar", "/app.jar"]
+        }
+    },
+    "env": {
+        "JAVA_OPTS": "-Dconfig.file=/conf/application.conf"
+    }
+
+
+}

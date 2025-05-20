@@ -1,0 +1,16 @@
+FROM node:alpine
+MAINTAINER Play Inc
+ENV container=Play-ui
+
+# Create app directory
+WORKDIR /opt/play-ui
+
+RUN npm install -g pushstate-server 
+
+# Bundle app source
+COPY build /opt/play-ui
+
+EXPOSE 4000
+
+# Start production version via pushstate server
+CMD [ "pushstate-server", "/opt/play-ui", "4000" ]

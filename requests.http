@@ -1,0 +1,44 @@
+###This is a collection of HTTP requests to test the server
+
+GET http://localhost:9000/favicon.ico
+
+
+### index.html
+
+GET http://localhost:9000/index.html
+
+### about.html
+
+GET http://localhost:9000/about.html
+
+### contact.html
+
+GET http://localhost:9000/contact.html
+
+### javascripts/main.js
+GET http://localhost:9000/javascripts/main.js
+
+### javascripts/jquery.js
+GET http://localhost:9000/javascripts/jquery.js
+
+### javascripts/jquery.min.js
+
+GET http://localhost:9000/javascripts/jquery.min.js
+
+
+###  stylesheets/main.css
+
+GET http://localhost:9000/stylesheets/main.css
+
+### images/logo.png
+
+GET http://localhost:9000/images/logo.png
+
+### images/favicon.png
+
+GET http://localhost:9000/images/favicon.png
+
+
+
+
+

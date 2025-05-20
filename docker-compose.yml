@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  play-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    environment:
+      - PLAY_APP_SECRET=your-secret-key
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - play-app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
