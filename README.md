@@ -874,3 +874,21 @@ By default, only claims from API resources (not identity resources like profile)
 Play picks the first route in declaration order.
 
 [compression](https://cefboud.com/posts/compression/)
+
+`kill -9 $(lsof -ti :9000)`
+
+```conf
+play.filters.hosts {
+  allowed = [
+    "127.0.0.1",
+    "192.168.1.0/24",  # Allow the entire subnet 192.168.1.0 to 192.168.1.255
+    "10.0.0.0/8",      # Allow the entire 10.x.x.x subnet
+    "example.com"      # You can also allow specific hostnames
+  ]
+}
+```
+```log
+2025-07-02 03:26:53 WARN  p.filters.hosts.AllowedHostsFilter  Host not allowed: localhost:9000
+2025-07-02 03:26:58 WARN  p.filters.hosts.AllowedHostsFilter  Host not allowed: localhost:9000
+```
+`play.filters.hosts.allowed` matches against `HTTP Host headers (i.e. domain names)`, not `IP address ranges or CIDR blocks`.

@@ -18,9 +18,14 @@ generateJsReverseRouter := false
 
 generateReverseRouter := false
 
-libraryDependencies += guice
-libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "7.0.1" % Test
+libraryDependencies ++= Seq( 
+  guice,
+"com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-core" % "2.36.5",
+"com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-circe" % "2.36.5",
+"com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-macros" % "2.36.5" % "provided",
+ "org.scalatestplus.play" %% "scalatestplus-play" % "7.0.1" % Test
 
+)
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.example.controllers._"
 

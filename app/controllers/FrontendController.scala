@@ -1,14 +1,17 @@
 package controllers
 
 import javax.inject._
-import play.api.mvc._
+import play.api.mvc.*
 import play.libs.pekko.PekkoGuiceSupport
 import play.libs.streams.Accumulator
 import play.libs.streams.ActorFlow
 import play.libs.streams.PekkoStreams
 import play.libs.Files
 import play.libs.Json
-
+import play.filters.csrf.RequireCSRFCheckAction
+import play.filters.csrf.AddCSRFToken
+import play.filters.csrf.AddCSRFTokenAction
+import io.jsonwebtoken.Jwts.*
 @Singleton
 class FrontendController @Inject() (
     assets: Assets,

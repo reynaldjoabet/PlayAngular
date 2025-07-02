@@ -19,7 +19,8 @@ class HomeControllerSpec
   "HomeController GET" should {
 
     "render the index page from a new instance of controller" in {
-      val controller = new HomeController(stubControllerComponents())
+      val stubLoggingAction = org.mockito.Mockito.mock(classOf[actions.LoggingAction])
+      val controller = new HomeController(stubControllerComponents(), stubLoggingAction)
       val home = controller.index().apply(FakeRequest(GET, "/"))
 
       status(home) mustBe OK
